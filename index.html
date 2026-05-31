@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Saj</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .screen {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 26px;
+      padding: 26px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(14px);
+      text-align: center;
+    }
+
+    .card h1 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      line-height: 1.6;
+      opacity: 0.92;
+      margin-bottom: 18px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 16px;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      text-align: center;
+      margin: 10px 0 14px;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 13px 22px;
+      background: #ffd166;
+      color: #1b1b1b;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    button:active {
+      transform: scale(0.96);
+    }
+
+    .error {
+      min-height: 24px;
+      margin-top: 12px;
+      color: #ffe8e8;
+      font-size: 14px;
+    }
+
+    .terminal-screen {
+      min-height: 100vh;
+      padding: 18px;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+        url("wallpaper.png") center/cover no-repeat fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .terminal {
+      width: 100%;
+      max-width: 760px;
+      min-height: 520px;
+      background: rgba(8, 13, 18, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.55);
+    }
+
+    .terminal-top {
+      height: 46px;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ff5f57;
+    }
+
+    .dot:nth-child(2) { background: #ffbd2e; }
+    .dot:nth-child(3) { background: #28c840; }
+
+    .title {
+      margin-left: 10px;
+      opacity: 0.75;
+      font-size: 13px;
+    }
+
+    #terminalText {
+      padding: 20px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 15px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      color: #d9ffe2;
+    }
+
+    .wael { color: #9ee7ff; }
+    .mind { color: #ffd166; }
+    .system { color: #b7ffb7; }
+    .soft { color: #ffffff; }
+
+    .cursor::after {
+      content: "|";
+      animation: blink 0.8s infinite;
+      color: #fff;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    .final-screen {
+      min-height: 100vh;
+      background: #101018;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .final-card {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .final-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .final-content {
+      padding: 22px;
+    }
+
+    .final-content h2 {
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .final-content p {
+      line-height: 1.6;
+      opacity: 0.92;
+      margin-bottom: 16px;
+    }
+
+    #wallpaperReason {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      text-align: left;
+      line-height: 1.8;
+    }
+
+    .small-note {
+      margin-top: 16px;
+      font-size: 14px;
+      opacity: 0.75;
+    }
+
+    @media (max-width: 520px) {
+      .card h1 { font-size: 26px; }
+      #terminalText { font-size: 13.5px; padding: 16px; }
+      .terminal { min-height: 560px; }
+      .terminal-screen { padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <section id="welcomeScreen" class="screen">
+    <div class="card">
+      <h1>Welcome 😊</h1>
+      <p>If you want to see the message, insert your birthday.</p>
+      <p><strong>Format:</strong> day-month-year<br />Example: 07-08-1995</p>
+      <input id="birthdayInput" type="text" inputmode="numeric" placeholder="dd-mm-yyyy" />
+      <button onclick="checkBirthday()">Open message</button>
+      <div id="errorText" class="error"></div>
+    </div>
+  </section>
+
+  <section id="terminalScreen" class="terminal-screen hidden">
+    <div class="terminal">
+      <div class="terminal-top">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="title">wael_mind_console.exe</span>
+      </div>
+      <div id="terminalText" class="cursor"></div>
+    </div>
+  </section>
+
+  <section id="finalScreen" class="final-screen hidden">
+    <div class="final-card">
+      <img src="wallpaper.png" alt="Happy Birthday Saj" />
+      <div class="final-content">
+        <h2>Happy Birthday, Saj 🎂</h2>
+        <p>I made this small thing just to make you smile today.</p>
+        <button onclick="toggleReason()">Why this wallpaper?</button>
+        <div id="wallpaperReason" class="hidden">
+          🦒 Zarrife<br />
+          🍣 Sushu<br />
+          🌊 Beach<br />
+          ☀️ Sun<br /><br />
+          So basically... this wallpaper explains you 😄
+        </div>
+        <div class="small-note">From Wael</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // IMPORTANT: Change this to Saja's real birthday.
+    // Accepted examples after normalization: 7-8-1995, 07-08-1995, 07/08/1995
+    const correctBirthday = "DD-MM-YYYY";
+
+    const lines = [
+      { text: "Initializing birthday message...", className: "system", delay: 500 },
+      { text: "Loading recipient...", className: "system", delay: 500 },
+      { text: "Recipient found: Hajje Saja 🎂", className: "system", delay: 800 },
+      { text: "Mind: Ya zalame, are you trying to get yourself killed?", className: "mind", delay: 700 },
+      { text: "Wael: What now?", className: "wael", delay: 500 },
+      { text: "Mind: You know very well she hates being called Hajje Saja.", className: "mind", delay: 800 },
+      { text: "Wael: Fair.", className: "wael", delay: 500 },
+      { text: "Deleting...", className: "system", delay: 700 },
+      { text: "Recipient found: Saj 🎂", className: "system", delay: 600 },
+      { text: "Mind: Much better.", className: "mind", delay: 500 },
+      { text: "Wael: Happy Birthday Saj 🎂", className: "wael", delay: 700 },
+      { text: "Wael: 3a2bel el 100 sene...", className: "wael", delay: 700 },
+      { text: "Mind: STOP.", className: "mind", delay: 700 },
+      { text: "Wael: What?", className: "wael", delay: 500 },
+      { text: "Mind: You know she doesn't like that either.", className: "mind", delay: 800 },
+      { text: "Wael: Seriously?", className: "wael", delay: 500 },
+      { text: "Mind: Seriously.", className: "mind", delay: 500 },
+      { text: "Wael: Fine.", className: "wael", delay: 500 },
+      { text: "Deleting again...", className: "system", delay: 700 },
+      { text: "Wael: Happy Birthday Saj 🎂", className: "wael", delay: 600 },
+      { text: "Wael: I hope this year brings you happiness, good health, peace of mind, and beautiful surprises.", className: "wael", delay: 1100 },
+      { text: "Wael: I hope you achieve everything you're working for.", className: "wael", delay: 900 },
+      { text: "Wael: And I hope life is kind to you, because honestly you deserve all the kheir in this world.", className: "wael", delay: 1100 },
+      { text: "Mind: Good.", className: "mind", delay: 600 },
+      { text: "Wael: Good?", className: "wael", delay: 500 },
+      { text: "Mind: For once, yes.", className: "mind", delay: 650 },
+      { text: "Wael: I also wish you good coffee, good food, and good people.", className: "wael", delay: 900 },
+      { text: "Mind: And?", className: "mind", delay: 500 },
+      { text: "Wael: Minimum annoying people.", className: "wael", delay: 700 },
+      { text: "Mind: Now we're talking.", className: "mind", delay: 600 },
+      { text: "Wael: I already know what you're going to say.", className: "wael", delay: 800 },
+      { text: "Saj: Wael, you're lying. I'm not the cutest person in the world.", className: "soft", delay: 1000 },
+      { text: "Wael: Maybe.", className: "wael", delay: 600 },
+      { text: "Mind: Maybe?", className: "mind", delay: 600 },
+      { text: "Wael: Okay...", className: "wael", delay: 600 },
+      { text: "Wael: Walla, I still see you that way 😄", className: "wael", delay: 1200 },
+      { text: "Mind: Not bad.", className: "mind", delay: 700 },
+      { text: "Wael: I know.", className: "wael", delay: 500 },
+      { text: "Mind: No, you don't.", className: "mind", delay: 700 },
+      { text: "Loading final image...", className: "system", delay: 1000 },
+      { text: "Image loaded successfully ✅", className: "system", delay: 1000 }
+    ];
+
+    const input = document.getElementById("birthdayInput");
+    const errorText = document.getElementById("errorText");
+    const welcomeScreen = document.getElementById("welcomeScreen");
+    const terminalScreen = document.getElementById("terminalScreen");
+    const terminalText = document.getElementById("terminalText");
+    const finalScreen = document.getElementById("finalScreen");
+
+    input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") checkBirthday();
+    });
+
+    function normalizeDate(value) {
+      const parts = value.trim().replaceAll("/", "-").split("-");
+      if (parts.length !== 3) return value.trim();
+
+      const day = String(parseInt(parts[0], 10));
+      const month = String(parseInt(parts[1], 10));
+      const year = parts[2].trim();
+      return `${day}-${month}-${year}`;
+    }
+
+    function checkBirthday() {
+      const expected = normalizeDate(correctBirthday);
+      const entered = normalizeDate(input.value);
+
+      if (correctBirthday === "08-06-1996") {
+        errorText.textContent = "Wael, change correctBirthday in the code first 😄";
+        return;
+      }
+
+      if (entered === expected) {
+        welcomeScreen.classList.add("hidden");
+        terminalScreen.classList.remove("hidden");
+        startTyping();
+      } else {
+        errorText.textContent = "Nice try 😄 but this message is only for the birthday girl.";
+      }
+    }
+
+    async function startTyping() {
+      terminalText.innerHTML = "";
+      for (const line of lines) {
+        await typeLine(line.text, line.className);
+        await sleep(line.delay);
+      }
+      await sleep(900);
+      terminalScreen.classList.add("hidden");
+      finalScreen.classList.remove("hidden");
+      launchConfetti();
+    }
+
+    function typeLine(text, className) {
+      return new Promise(resolve => {
+        const lineElement = document.createElement("div");
+        lineElement.className = className;
+        terminalText.appendChild(lineElement);
+
+        let i = 0;
+        const speed = 24;
+        const interval = setInterval(() => {
+          lineElement.textContent += text.charAt(i);
+          i++;
+          terminalText.scrollTop = terminalText.scrollHeight;
+          if (i >= text.length) {
+            clearInterval(interval);
+            resolve();
+          }
+        }, speed);
+      });
+    }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function toggleReason() {
+      document.getElementById("wallpaperReason").classList.toggle("hidden");
+    }
+
+    function launchConfetti() {
+      const emojis = ["🎂", "🎉", "✨", "🦒", "🍣", "☀️"];
+      for (let i = 0; i < 36; i++) {
+        const piece = document.createElement("div");
+        piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        piece.style.position = "fixed";
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.top = "-40px";
+        piece.style.fontSize = 18 + Math.random() * 18 + "px";
+        piece.style.zIndex = "9999";
+        piece.style.pointerEvents = "none";
+        piece.style.transition = "transform 3.2s linear, opacity 3.2s linear";
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+          piece.style.transform = `translateY(${110 + Math.random() * 30}vh) rotate(${Math.random() * 720}deg)`;
+          piece.style.opacity = "0";
+        }, 30);
+
+        setTimeout(() => piece.remove(), 3400);
+      }
+    }
+  </script>
+</body>
+</html>
