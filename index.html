@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday Saj</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -13,70 +14,68 @@
 
     body {
       min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       background: linear-gradient(135deg, #1f1c2c, #928dab);
-      color: #fff;
+      color: white;
       overflow-x: hidden;
-    }
-
-    .screen {
-      min-height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 22px;
     }
 
     .hidden {
       display: none !important;
     }
 
+    .screen {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 22px;
+    }
+
     .card {
       width: 100%;
       max-width: 430px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 26px;
-      padding: 26px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.25);
       backdrop-filter: blur(14px);
       text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
     }
 
-    .card h1 {
+    h1 {
+      margin-bottom: 14px;
       font-size: 30px;
-      margin-bottom: 12px;
     }
 
-    .card p {
+    p {
       line-height: 1.6;
+      margin-bottom: 16px;
       opacity: 0.92;
-      margin-bottom: 18px;
     }
 
     input {
       width: 100%;
-      padding: 15px 16px;
-      border-radius: 16px;
+      padding: 15px;
       border: none;
-      outline: none;
+      border-radius: 16px;
       font-size: 18px;
       text-align: center;
-      margin: 10px 0 14px;
+      outline: none;
+      margin: 10px 0 15px;
     }
 
     button {
       border: none;
       border-radius: 999px;
-      padding: 13px 22px;
+      padding: 13px 23px;
       background: #ffd166;
       color: #1b1b1b;
       font-weight: 700;
       font-size: 16px;
       cursor: pointer;
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     }
 
     button:active {
@@ -86,39 +85,39 @@
     .error {
       min-height: 24px;
       margin-top: 12px;
-      color: #ffe8e8;
       font-size: 14px;
+      color: #ffe8e8;
     }
 
     .terminal-screen {
       min-height: 100vh;
-      padding: 18px;
+      padding: 12px;
       background:
-        linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
         url("wallpaper.png") center/cover no-repeat fixed;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
     }
 
     .terminal {
       width: 100%;
       max-width: 760px;
-      min-height: 520px;
-      background: rgba(8, 13, 18, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      min-height: 560px;
+      background: rgba(8, 13, 18, 0.9);
       border-radius: 22px;
       overflow: hidden;
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.6);
     }
 
     .terminal-top {
       height: 46px;
-      background: rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
-      padding: 0 15px;
       gap: 8px;
+      padding: 0 15px;
+      background: rgba(255,255,255,0.08);
     }
 
     .dot {
@@ -128,33 +127,38 @@
       background: #ff5f57;
     }
 
-    .dot:nth-child(2) { background: #ffbd2e; }
-    .dot:nth-child(3) { background: #28c840; }
+    .dot:nth-child(2) {
+      background: #ffbd2e;
+    }
 
-    .title {
+    .dot:nth-child(3) {
+      background: #28c840;
+    }
+
+    .terminal-title {
       margin-left: 10px;
-      opacity: 0.75;
       font-size: 13px;
+      opacity: 0.75;
     }
 
     #terminalText {
-      padding: 20px;
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-      font-size: 15px;
+      padding: 18px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 14px;
       line-height: 1.65;
       white-space: pre-wrap;
       color: #d9ffe2;
     }
 
+    .system { color: #b7ffb7; }
     .wael { color: #9ee7ff; }
     .mind { color: #ffd166; }
-    .system { color: #b7ffb7; }
-    .soft { color: #ffffff; }
+    .saj { color: #ffffff; }
 
     .cursor::after {
       content: "|";
+      color: white;
       animation: blink 0.8s infinite;
-      color: #fff;
     }
 
     @keyframes blink {
@@ -165,10 +169,10 @@
     .final-screen {
       min-height: 100vh;
       background: #101018;
-      padding: 18px;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      padding: 18px;
     }
 
     .final-card {
@@ -176,9 +180,9 @@
       max-width: 520px;
       border-radius: 28px;
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+      background: rgba(255,255,255,0.08);
       text-align: center;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.5);
     }
 
     .final-card img {
@@ -195,17 +199,11 @@
       font-size: 24px;
     }
 
-    .final-content p {
-      line-height: 1.6;
-      opacity: 0.92;
-      margin-bottom: 16px;
-    }
-
     #wallpaperReason {
       margin-top: 18px;
       padding: 18px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.1);
       text-align: left;
       line-height: 1.8;
     }
@@ -215,23 +213,21 @@
       font-size: 14px;
       opacity: 0.75;
     }
-
-    @media (max-width: 520px) {
-      .card h1 { font-size: 26px; }
-      #terminalText { font-size: 13.5px; padding: 16px; }
-      .terminal { min-height: 560px; }
-      .terminal-screen { padding: 10px; }
-    }
   </style>
 </head>
+
 <body>
+
   <section id="welcomeScreen" class="screen">
     <div class="card">
       <h1>Welcome 😊</h1>
       <p>If you want to see the message, insert your birthday.</p>
-      <p><strong>Format:</strong> day-month-year<br />Example: 07-08-1995</p>
-      <input id="birthdayInput" type="text" inputmode="numeric" placeholder="dd-mm-yyyy" />
+      <p><strong>Format:</strong> day-month-year<br>Example: 08-06-1996</p>
+
+      <input id="birthdayInput" type="text" placeholder="dd-mm-yyyy" inputmode="numeric" />
+
       <button onclick="checkBirthday()">Open message</button>
+
       <div id="errorText" class="error"></div>
     </div>
   </section>
@@ -242,49 +238,55 @@
         <span class="dot"></span>
         <span class="dot"></span>
         <span class="dot"></span>
-        <span class="title">wael_mind_console.exe</span>
+        <span class="terminal-title">wael_mind_console.exe</span>
       </div>
+
       <div id="terminalText" class="cursor"></div>
     </div>
   </section>
 
   <section id="finalScreen" class="final-screen hidden">
     <div class="final-card">
-      <img src="wallpaper.png" alt="Happy Birthday Saj" />
+      <img src="wallpaper.png" alt="Happy Birthday Saj">
+
       <div class="final-content">
         <h2>Happy Birthday, Saj 🎂</h2>
         <p>I made this small thing just to make you smile today.</p>
+
         <button onclick="toggleReason()">Why this wallpaper?</button>
+
         <div id="wallpaperReason" class="hidden">
-          🦒 Zarrife<br />
-          🍣 Sushu<br />
-          🌊 Beach<br />
-          ☀️ Sun<br /><br />
+          🦒 Zarrife<br>
+          🍣 Sushu<br>
+          🌊 Beach<br>
+          ☀️ Sun<br><br>
           So basically... this wallpaper explains you 😄
         </div>
+
         <div class="small-note">From Wael</div>
       </div>
     </div>
   </section>
 
   <script>
-    // IMPORTANT: Change this to Saja's real birthday.
-    // Accepted examples after normalization: 7-8-1995, 07-08-1995, 07/08/1995
     const correctBirthday = "08-06-1996";
 
     const lines = [
       { text: "Initializing birthday message...", className: "system", delay: 500 },
       { text: "Loading recipient...", className: "system", delay: 500 },
       { text: "Recipient found: Hajje Saja 🎂", className: "system", delay: 800 },
+
       { text: "Mind: Ya zalame, are you trying to get yourself killed?", className: "mind", delay: 700 },
       { text: "Wael: What now?", className: "wael", delay: 500 },
-      { text: "Mind: You know very well she hates being called Hajje Saja.", className: "mind", delay: 800 },
+      { text: "Mind: You know very well she hates being called Hajje Saja.", className: "mind", delay: 900 },
       { text: "Wael: Fair.", className: "wael", delay: 500 },
       { text: "Deleting...", className: "system", delay: 700 },
-      { text: "Recipient found: Saj 🎂", className: "system", delay: 600 },
+      { text: "Recipient found: Saj 🎂", className: "system", delay: 700 },
+
       { text: "Mind: Much better.", className: "mind", delay: 500 },
       { text: "Wael: Happy Birthday Saj 🎂", className: "wael", delay: 700 },
       { text: "Wael: 3a2bel el 100 sene...", className: "wael", delay: 700 },
+
       { text: "Mind: STOP.", className: "mind", delay: 700 },
       { text: "Wael: What?", className: "wael", delay: 500 },
       { text: "Mind: You know she doesn't like that either.", className: "mind", delay: 800 },
@@ -292,26 +294,32 @@
       { text: "Mind: Seriously.", className: "mind", delay: 500 },
       { text: "Wael: Fine.", className: "wael", delay: 500 },
       { text: "Deleting again...", className: "system", delay: 700 },
-      { text: "Wael: Happy Birthday Saj 🎂", className: "wael", delay: 600 },
-      { text: "Wael: I hope this year brings you happiness, good health, peace of mind, and beautiful surprises.", className: "wael", delay: 1100 },
+
+      { text: "Wael: Happy Birthday Saj 🎂", className: "wael", delay: 700 },
+      { text: "Wael: I hope this year brings you happiness, good health, peace of mind, and beautiful surprises.", className: "wael", delay: 1200 },
       { text: "Wael: I hope you achieve everything you're working for.", className: "wael", delay: 900 },
-      { text: "Wael: And I hope life is kind to you, because honestly you deserve all the kheir in this world.", className: "wael", delay: 1100 },
+      { text: "Wael: And I hope life is kind to you, because honestly you deserve all the kheir in this world.", className: "wael", delay: 1200 },
+
       { text: "Mind: Good.", className: "mind", delay: 600 },
       { text: "Wael: Good?", className: "wael", delay: 500 },
       { text: "Mind: For once, yes.", className: "mind", delay: 650 },
+
       { text: "Wael: I also wish you good coffee, good food, and good people.", className: "wael", delay: 900 },
       { text: "Mind: And?", className: "mind", delay: 500 },
       { text: "Wael: Minimum annoying people.", className: "wael", delay: 700 },
       { text: "Mind: Now we're talking.", className: "mind", delay: 600 },
+
       { text: "Wael: I already know what you're going to say.", className: "wael", delay: 800 },
-      { text: "Saj: Wael, you're lying. I'm not the cutest person in the world.", className: "soft", delay: 1000 },
+      { text: "Saj: Wael, you're lying. I'm not the cutest person in the world.", className: "saj", delay: 1000 },
       { text: "Wael: Maybe.", className: "wael", delay: 600 },
       { text: "Mind: Maybe?", className: "mind", delay: 600 },
       { text: "Wael: Okay...", className: "wael", delay: 600 },
       { text: "Wael: Walla, I still see you that way 😄", className: "wael", delay: 1200 },
+
       { text: "Mind: Not bad.", className: "mind", delay: 700 },
       { text: "Wael: I know.", className: "wael", delay: 500 },
       { text: "Mind: No, you don't.", className: "mind", delay: 700 },
+
       { text: "Loading final image...", className: "system", delay: 1000 },
       { text: "Image loaded successfully ✅", className: "system", delay: 1000 }
     ];
@@ -324,27 +332,28 @@
     const finalScreen = document.getElementById("finalScreen");
 
     input.addEventListener("keydown", function(event) {
-      if (event.key === "Enter") checkBirthday();
+      if (event.key === "Enter") {
+        checkBirthday();
+      }
     });
 
     function normalizeDate(value) {
       const parts = value.trim().replaceAll("/", "-").split("-");
-      if (parts.length !== 3) return value.trim();
+
+      if (parts.length !== 3) {
+        return value.trim();
+      }
 
       const day = String(parseInt(parts[0], 10));
       const month = String(parseInt(parts[1], 10));
       const year = parts[2].trim();
+
       return `${day}-${month}-${year}`;
     }
 
     function checkBirthday() {
       const expected = normalizeDate(correctBirthday);
       const entered = normalizeDate(input.value);
-
-      if (correctBirthday === "08-06-1996") {
-        errorText.textContent = "Wael, change correctBirthday in the code first 😄";
-        return;
-      }
 
       if (entered === expected) {
         welcomeScreen.classList.add("hidden");
@@ -357,10 +366,12 @@
 
     async function startTyping() {
       terminalText.innerHTML = "";
+
       for (const line of lines) {
         await typeLine(line.text, line.className);
         await sleep(line.delay);
       }
+
       await sleep(900);
       terminalScreen.classList.add("hidden");
       finalScreen.classList.remove("hidden");
@@ -375,10 +386,13 @@
 
         let i = 0;
         const speed = 24;
+
         const interval = setInterval(() => {
           lineElement.textContent += text.charAt(i);
           i++;
-          terminalText.scrollTop = terminalText.scrollHeight;
+
+          window.scrollTo(0, document.body.scrollHeight);
+
           if (i >= text.length) {
             clearInterval(interval);
             resolve();
@@ -397,8 +411,10 @@
 
     function launchConfetti() {
       const emojis = ["🎂", "🎉", "✨", "🦒", "🍣", "☀️"];
+
       for (let i = 0; i < 36; i++) {
         const piece = document.createElement("div");
+
         piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
         piece.style.position = "fixed";
         piece.style.left = Math.random() * 100 + "vw";
@@ -407,16 +423,21 @@
         piece.style.zIndex = "9999";
         piece.style.pointerEvents = "none";
         piece.style.transition = "transform 3.2s linear, opacity 3.2s linear";
+
         document.body.appendChild(piece);
 
         setTimeout(() => {
-          piece.style.transform = `translateY(${110 + Math.random() * 30}vh) rotate(${Math.random() * 720}deg)`;
+          piece.style.transform =
+            `translateY(${110 + Math.random() * 30}vh) rotate(${Math.random() * 720}deg)`;
           piece.style.opacity = "0";
         }, 30);
 
-        setTimeout(() => piece.remove(), 3400);
+        setTimeout(() => {
+          piece.remove();
+        }, 3400);
       }
     }
   </script>
+
 </body>
 </html>
